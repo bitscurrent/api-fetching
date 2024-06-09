@@ -1,0 +1,92 @@
+
+.card-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 175vh; 
+    height: 81vh; 
+    border: 1px solid black; 
+    background: linear-gradient(90deg, #0d90cc, #4d0b4d); /* Gradient background */
+  }
+  
+  .main-container {
+    display: flex;
+    align-items: center;
+    height: 57vh;
+    padding: 7%; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  }
+ 
+  .profile-pic img{
+    width: 41vh; 
+    height: 40vh; 
+    margin-right: 4%; 
+  }
+
+  .first-name,
+  .last-name {
+    display: inline-block;
+  }
+  
+  .gender, .phone{
+    margin-top: 10%;
+  }
+
+  .main-container .info{
+    margin-left: 5%;
+    margin-bottom: 29px; 
+  }
+  
+  /* Define styles for screens smaller than 768px */
+@media (max-width: 500px) {
+    .card-container {
+      width: 100%; 
+      height: 100vh; 
+    }
+
+    .profile-pic img{
+       display: flexbox;
+        width: 15%; 
+        height: 15%; 
+        margin-right: 4%; 
+      }
+
+      .info {
+        position: absolute;
+        font-size: 22px;
+        bottom: 2.5%;
+        height: auto; 
+        margin-right: 26%; 
+      }
+    
+      .profile-pic img {
+        width: 90vw; 
+        height: auto; 
+        margin-bottom: 4%; 
+      }
+
+  }
+  
+ /* Define styles for screens smaller than 480px */
+@media (max-width: 480px) {
+    .card-container {
+      width: 100vw; 
+      height: 100vh; 
+    }
+  
+    .profile-pic img {
+      width: 90vw; 
+      height: auto; 
+      margin-bottom: 4%; 
+    }
+  
+    .info {
+      font-size: 21px; 
+      margin-top: 1%; 
+    }
+  }
+  
+
+  
+  

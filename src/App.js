@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Card from "./components/Card";
 
-function App() {
+const App = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const URL = "https://randomuser.me/api/?page=1&results=1&seed=abc";
+
+  const getData = async () => {
+    try {
+      const response = await fetch(URL);
+      const jsonData = await response.json();
+      setData(jsonData.results[0]);
+    } catch (error) {
+      setError(error);
+      console.log("Error Fetching Data", error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, [data]); // If the data changes, it will trigger a re-fetch
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {error ? (
+        <p>Error fetching data: {error.message}</p>
+      ) : data ? (
+        <Card data={data} />
+      ) : (
+        <p>Loading...</p>
+      )}
+    </>
   );
-}
+};
 
 export default App;
